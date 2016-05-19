@@ -410,7 +410,7 @@ BANNER
 fi
 %post policy
 semodule -i %{_datadir}/selinux/packages/nginx/nginx.pp 2>/dev/null ||:
-semanage port -a -t http_port_t -p tcp 8090
+semanage port -a -t httpd_port_t -p tcp 8090
 
 %preun
 if [ $1 -eq 0 ]; then
@@ -439,7 +439,7 @@ fi
 
 %postun policy 
 semodule -i %{_datadir}/selinux/packages/nginx/nginx.pp 2>/dev/null || :
-semanage port -a -t http_port_t -p tcp 8090
+semanage port -a -t httpd_port_t -p tcp 8090
 
 %changelog
 * Tue Sep 16 2014 Sergey Budnevitch <sb@nginx.com>
