@@ -4,6 +4,7 @@ require {
 	type httpd_t;
 	type httpd_config_t;
 	type httpd_port_t;
+	type http_port_t;
 	type hostname_t;
 	type transproxy_port_t;
 	type inotifyfs_t;
