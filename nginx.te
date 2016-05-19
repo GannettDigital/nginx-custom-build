@@ -3,10 +3,6 @@ module nginx 1.0;
 require {
 	type httpd_t;
 	type httpd_config_t;
-	class fd use;
-	type init_t;
-	type semanage_t;
-	role system_r;
 	class dir { write create add_name setattr };
 }
 
@@ -16,10 +12,6 @@ require {
 
 allow httpd_t httpd_config_t:dir write;
 
-allow semanage_t init_t:fd use;
-semanage port -a -t http_port_t -p tcp 8090;
-
 #!!!! This avc is allowed in the current policy
 allow httpd_t httpd_config_t:dir { create add_name setattr };
-allow httpd_t httpd_port_t:tcp_socket name_bind;
-allow httpd_t http_port_t:tcp_socket name_bind;
+allow httpd_t 8090 name_bind;
