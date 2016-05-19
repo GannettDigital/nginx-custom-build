@@ -24,5 +24,4 @@ allow httpd_t httpd_config_t:dir write;
 
 #!!!! This avc is allowed in the current policy
 allow httpd_t httpd_config_t:dir { create add_name setattr };
-allow httpd_t httpd_port_t:tcp_socket name_bind;
 allow httpd_t transproxy_port_t:tcp_socket name_connect;
