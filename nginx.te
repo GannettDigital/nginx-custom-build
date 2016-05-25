@@ -1,8 +1,6 @@
 module nginx 1.0;
 
 require {
-	type puppet_port_t;
-	type unreserved_port_t;
 	type httpd_t;
 	type httpd_config_t;
 	type httpd_port_t;
@@ -27,4 +25,3 @@ allow httpd_t httpd_config_t:dir write;
 #!!!! This avc is allowed in the current policy
 allow httpd_t httpd_config_t:dir { create add_name setattr };
 allow httpd_t transproxy_port_t:tcp_socket name_connect;
-allow httpd_t unreserved_port_t:tcp_socket name_bind;
