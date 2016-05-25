@@ -1,6 +1,7 @@
 module nginx 1.0;
 
 require {
+    type puppet_port_t;
 	type httpd_t;
 	type httpd_config_t;
 	type httpd_port_t;
