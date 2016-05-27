@@ -410,7 +410,6 @@ BANNER
 fi
 %post policy
 semodule -i %{_datadir}/selinux/packages/nginx/nginx.pp 2>/dev/null ||:
-semanage port -a -t httpd_port_t -p tcp 8090
 
 %preun
 if [ $1 -eq 0 ]; then
