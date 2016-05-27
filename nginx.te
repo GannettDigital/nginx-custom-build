@@ -3,6 +3,7 @@ module nginx 1.0;
 require {
 	type httpd_t;
 	type http_cache_port_t;
+	type puppet_port_t;
 	type httpd_config_t;
 	type httpd_port_t;
 	type http_port_t;
@@ -27,7 +28,5 @@ allow httpd_t httpd_config_t:dir write;
 allow httpd_t httpd_config_t:dir { create add_name setattr };
 allow httpd_t transproxy_port_t:tcp_socket name_connect;
 
-bool httpd_can_network_relay true;
-bool httpd_can_network_connect true;
 allow httpd_t http_cache_port_t:tcp_socket name_connect;
 allow httpd_t puppet_port_t:tcp_socket name_connect;
