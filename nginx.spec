@@ -410,6 +410,8 @@ BANNER
 fi
 %post policy
 semodule -i %{_datadir}/selinux/packages/nginx/nginx.pp 2>/dev/null ||:
+setsebool -P httpd_can_network_connect on 2>/dev/null ||:
+setsebool -P httpd_can_network_relay on 2>/dev/null ||:
 
 %preun
 if [ $1 -eq 0 ]; then
@@ -438,6 +440,8 @@ fi
 
 %postun policy 
 semodule -i %{_datadir}/selinux/packages/nginx/nginx.pp 2>/dev/null || :
+setsebool -P httpd_can_network_connect off 2>/dev/null ||:
+setsebool -P httpd_can_network_relay off 2>/dev/null ||:
 
 %changelog
 * Tue Sep 16 2014 Sergey Budnevitch <sb@nginx.com>
