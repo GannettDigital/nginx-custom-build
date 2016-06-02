@@ -143,6 +143,7 @@ cp -R -p %SOURCE25 .
         --http-log-path=%{_localstatedir}/log/nginx/access.log \
         --pid-path=%{_localstatedir}/run/nginx.pid \
         --lock-path=%{_localstatedir}/run/nginx.lock \
+        --http-ajp-temp-path=%{_localstatedir}/cache/nginx/ajp_temp \
         --http-client-body-temp-path=%{_localstatedir}/cache/nginx/client_temp \
         --http-proxy-temp-path=%{_localstatedir}/cache/nginx/proxy_temp \
         --http-fastcgi-temp-path=%{_localstatedir}/cache/nginx/fastcgi_temp \
