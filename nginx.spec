@@ -63,7 +63,6 @@ Source8: nginx.service
 Source9: nginx.upgrade.sh
 Source10: headers-more-nginx-module
 Source11: ngx-fancyindex
-Source12: nginx_ajp_module
 Source13: nginx-xslt-html-parser.patch
 Source14: nginx-auth-ldap
 Source15: nginx-http-shibboleth
@@ -143,7 +142,6 @@ cp -R -p %SOURCE25 .
         --http-log-path=%{_localstatedir}/log/nginx/access.log \
         --pid-path=%{_localstatedir}/run/nginx.pid \
         --lock-path=%{_localstatedir}/run/nginx.lock \
-        --http-ajp-temp-path=%{_localstatedir}/cache/nginx/ajp_temp \
         --http-client-body-temp-path=%{_localstatedir}/cache/nginx/client_temp \
         --http-proxy-temp-path=%{_localstatedir}/cache/nginx/proxy_temp \
         --http-fastcgi-temp-path=%{_localstatedir}/cache/nginx/fastcgi_temp \
@@ -174,7 +172,6 @@ cp -R -p %SOURCE25 .
         --with-http_spdy_module \
         --with-http_xslt_module \
         --add-module=%{_builddir}/%{name}-%{version}/ngx-fancyindex \
-        --add-module=%{_builddir}/%{name}-%{version}/nginx_ajp_module \
         --add-module=%{_builddir}/%{name}-%{version}/headers-more-nginx-module \
         --add-module=%{_builddir}/%{name}-%{version}/nginx-auth-ldap \
         --add-module=%{_builddir}/%{name}-%{version}/nginx-http-shibboleth \
@@ -233,7 +230,6 @@ make %{?_smp_mflags}
         --with-http_spdy_module \
         --with-http_xslt_module \
         --add-module=%{_builddir}/%{name}-%{version}/ngx-fancyindex \
-        --add-module=%{_builddir}/%{name}-%{version}/nginx_ajp_module \
         --add-module=%{_builddir}/%{name}-%{version}/headers-more-nginx-module \
         --add-module=%{_builddir}/%{name}-%{version}/nginx-auth-ldap \
         --add-module=%{_builddir}/%{name}-%{version}/nginx-http-shibboleth \
