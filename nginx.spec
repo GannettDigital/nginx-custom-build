@@ -118,7 +118,6 @@ Selinux policy for nginx when set to enforcing
 %setup -q
 cp -R -p %SOURCE10 .
 cp -R -p %SOURCE11 .
-cp -R -p %SOURCE12 .
 patch -p1 < %SOURCE13
 cp -R -p %SOURCE14 .
 cp -R -p %SOURCE15 .
