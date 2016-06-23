@@ -22,7 +22,7 @@ Requires: initscripts >= 8.36
 Requires(post): chkconfig
 Requires: openssl >= 1.0.1
 BuildRequires: openssl-devel >= 1.0.1
-%define with_spdy 1
+%define with_http2 1
 %endif
 
 %if 0%{?rhel}  == 7
@@ -33,7 +33,7 @@ Requires: openssl >= 1.0.1
 BuildRequires: systemd
 BuildRequires: openssl-devel >= 1.0.1
 Epoch: 1
-%define with_spdy 1
+%define with_http2 1
 %endif
 
 %if 0%{?suse_version}
@@ -57,7 +57,8 @@ Source2: nginx.init
 Source3: nginx.sysconf
 Source4: nginx.conf
 Source5: nginx.vh.default.conf
-Source6: nginx.vh.example_ssl.conf
+# Deprecated in
+# Source6: nginx.vh.example_ssl.conf
 Source7: nginx.suse.init
 Source8: nginx.service
 Source9: nginx.upgrade.sh
@@ -182,7 +183,7 @@ cp -R -p %SOURCE27 .
         --with-file-aio \
         --with-ipv6 \
         --with-debug \
-        %{?with_spdy:--with-http_spdy_module} \
+        %{?with_http2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         --with-http_spdy_module \
         --with-http_xslt_module \
@@ -243,9 +244,9 @@ make %{?_smp_mflags}
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
-        %{?with_spdy:--with-http_spdy_module} \
+        %{?with_http2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
-        --with-http_spdy_module \
+        --with-http_v2_module \
         --with-http_xslt_module \
         --add-module=%{_builddir}/%{name}-%{version}/ngx-fancyindex \
         --add-module=%{_builddir}/%{name}-%{version}/headers-more-nginx-module \
@@ -293,8 +294,6 @@ semodule_package -o %SOURCE26 -m nginx.mod
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
 %{__install} -m 644 -p %{SOURCE5} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/default.conf.sample
-%{__install} -m 644 -p %{SOURCE6} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/example_ssl.conf.sample
 %if 0%{?rhel}  == 7
 %{__install} -m 644 -p %{SOURCE28} \
     $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/passenger.conf
