@@ -185,7 +185,7 @@ cp -R -p %SOURCE27 .
         --with-debug \
         %{?with_http2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
-        --with-http_spdy_module \
+        --with-http_v2_module \
         --with-http_xslt_module \
         --add-module=%{_builddir}/%{name}-%{version}/ngx-fancyindex \
         --add-module=%{_builddir}/%{name}-%{version}/headers-more-nginx-module \
