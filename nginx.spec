@@ -111,7 +111,7 @@ BuildRequires: libGeoIP-devel
         --with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
         --with-http_perl_module=dynamic \
-        --add-dynamic-module=njs-%{module_njs_shaid}/nginx \
+        --add-dynamic-module=njs-%{module_njs_version}/nginx \
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \
@@ -606,7 +606,7 @@ setsebool -P httpd_can_network_relay on 2>/dev/null ||:
 - 1.9.15
 - njs updated to 1c50334fbea6.
 
-* Tue Apr 19 2016  Konstantin Pavlov <thresh@nginx.com>
+* Tue Apr 4 2016 Konstantin Pavlov <thresh@nginx.com>
 - 1.9.14
 
 * Tue Mar 29 2016 Konstantin Pavlov <thresh@nginx.com>
