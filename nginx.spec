@@ -68,7 +68,7 @@ BuildRequires: libGeoIP-devel
 %define module_geoip_release         1%{?dist}.ngx
 %define module_image_filter_version  %{main_version}
 %define module_image_filter_release  1%{?dist}.ngx
-%define module_perl_version          %{main_version}
+%define module_perl_version          0.1.0
 %define module_perl_release          1%{?dist}.ngx
 %define module_njs_shaid             1c50334fbea6
 %define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
@@ -142,7 +142,7 @@ Source9: nginx.upgrade.sh
 Source10: nginx.suse.logrotate
 Source11: nginx-debug.service
 Source12: COPYRIGHT
-Source13: njs-%{module_njs_shaid}.tar.gz
+Source13: njs-%{module_njs_version}.tar.gz
 Source25: nginx.te
 
 License: 2-clause BSD-like license
