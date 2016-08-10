@@ -68,10 +68,10 @@ BuildRequires: libGeoIP-devel
 %define module_geoip_release         1%{?dist}.ngx
 %define module_image_filter_version  %{main_version}
 %define module_image_filter_release  1%{?dist}.ngx
-%define module_perl_version          %{main_version}
+%define module_perl_version          {main_version}
 %define module_perl_release          1%{?dist}.ngx
 %define module_njs_shaid             1c50334fbea6
-%define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
+%define module_njs_version           0.1.0
 %define module_njs_release           1%{?dist}.ngx
 
 %define bdir %{_builddir}/%{name}-%{main_version}
@@ -111,7 +111,7 @@ BuildRequires: libGeoIP-devel
         --with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
         --with-http_perl_module=dynamic \
-        --add-dynamic-module=njs-%{module_njs_shaid}/nginx \
+        --add-dynamic-module=njs-%{module_njs_version}/nginx \
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \
@@ -142,7 +142,7 @@ Source9: nginx.upgrade.sh
 Source10: nginx.suse.logrotate
 Source11: nginx-debug.service
 Source12: COPYRIGHT
-Source13: njs-%{module_njs_shaid}.tar.gz
+Source13: njs-%{module_njs_version}.tar.gz
 Source25: nginx.te
 
 License: 2-clause BSD-like license
@@ -415,6 +415,7 @@ install -p -m 644 -D nginx.pp \
 %files module-njs
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module-debug.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_js_module.so
 
 %files policy
 %dir %{_datadir}/selinux/packages/nginx
@@ -606,7 +607,7 @@ setsebool -P httpd_can_network_relay on 2>/dev/null ||:
 - 1.9.15
 - njs updated to 1c50334fbea6.
 
-* Tue Apr 04 2016 Konstantin Pavlov <thresh@nginx.com>
+* Tue Apr 4 2016 Konstantin Pavlov <thresh@nginx.com>
 - 1.9.14
 
 * Tue Mar 29 2016 Konstantin Pavlov <thresh@nginx.com>
