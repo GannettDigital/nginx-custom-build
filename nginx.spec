@@ -61,7 +61,7 @@ BuildRequires: libGeoIP-devel
 # end of distribution specific definitions
 
 %define main_version                 1.11.3
-%define main_release                 1%{?dist}.ngx
+%define main_release                 2%{?dist}.ngx
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -416,6 +416,7 @@ install -p -m 644 -D nginx.pp \
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module-debug.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_js_module.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_js_module-debug.so
 
 %files policy
 %dir %{_datadir}/selinux/packages/nginx

@@ -10,6 +10,9 @@ require {
 	type transproxy_port_t;
 	type usr_t;
 	type inotifyfs_t;
+	type dns_port_t;
+	class tcp_socket name_bind;
+	class udp_socket name_bind;
 	class tcp_socket name_connect;
 	class dir read;
 	class sock_file write;
@@ -32,3 +35,5 @@ allow httpd_t transproxy_port_t:tcp_socket name_connect;
 allow httpd_t http_cache_port_t:tcp_socket name_connect;
 allow httpd_t puppet_port_t:tcp_socket name_connect;
 allow httpd_t usr_t:sock_file write;
+allow httpd_t dns_port_t:tcp_socket name_bind;
+allow httpd_t dns_port_t:udp_socket name_bind;
