@@ -111,7 +111,7 @@ BuildRequires: libGeoIP-devel
         --with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
         --with-http_perl_module=dynamic \
-        --add-dynamic-module=njs-%{module_njs_version}/nginx \
+        --add-dynamic-module=njs-%{module_njs_shaid}/nginx \
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \
@@ -204,7 +204,7 @@ Summary: nginx perl module
 Dynamic perl module for nginx.
 
 %package module-njs
-Version: %{module_njs_version}
+Version: %{module_njs_shaid}
 Release: %{module_njs_release}
 Group: %{_group}
 Requires: nginx = %{?epoch:%{epoch}:}%{main_version}-%{main_release}
