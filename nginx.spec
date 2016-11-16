@@ -142,7 +142,7 @@ Source9: nginx.upgrade.sh
 Source10: nginx.suse.logrotate
 Source11: nginx-debug.service
 Source12: COPYRIGHT
-Source13: njs-%{module_njs_version}.tar.gz
+Source13: njs-%{module_njs_shaid}.tar.gz
 Source25: nginx.te
 
 License: 2-clause BSD-like license
