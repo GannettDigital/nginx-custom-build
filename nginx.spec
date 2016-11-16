@@ -607,7 +607,7 @@ setsebool -P httpd_can_network_relay on 2>/dev/null ||:
 - 1.9.15
 - njs updated to 1c50334fbea6.
 
-* Tue Apr  4 2016 Konstantin Pavlov <thresh@nginx.com>
+* Mon Apr  4 2016 Konstantin Pavlov <thresh@nginx.com>
 - 1.9.14
 
 * Tue Mar 29 2016 Konstantin Pavlov <thresh@nginx.com>
