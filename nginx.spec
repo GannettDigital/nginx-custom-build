@@ -415,7 +415,6 @@ install -p -m 644 -D nginx.pp \
 %files module-njs
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module-debug.so
-%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_js_module.so
 
 %files policy
 %dir %{_datadir}/selinux/packages/nginx
