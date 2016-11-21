@@ -111,7 +111,7 @@ BuildRequires: libGeoIP-devel
         --with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
         --with-http_perl_module=dynamic \
-        --add-dynamic-module=njs-%{module_njs_version}/nginx \
+        --add-dynamic-module=njs-%{module_njs_shaid}/nginx \
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \
@@ -142,7 +142,7 @@ Source9: nginx.upgrade.sh
 Source10: nginx.suse.logrotate
 Source11: nginx-debug.service
 Source12: COPYRIGHT
-Source13: njs-%{module_njs_version}.tar.gz
+Source13: njs-%{module_njs_shaid}.tar.gz
 Source25: nginx.te
 
 License: 2-clause BSD-like license
@@ -204,7 +204,7 @@ Summary: nginx perl module
 Dynamic perl module for nginx.
 
 %package module-njs
-Version: %{module_njs_version}
+Version: %{module_njs_shaid}
 Release: %{module_njs_release}
 Group: %{_group}
 Requires: nginx = %{?epoch:%{epoch}:}%{main_version}-%{main_release}
@@ -415,7 +415,6 @@ install -p -m 644 -D nginx.pp \
 %files module-njs
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module-debug.so
-%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_js_module.so
 
 %files policy
 %dir %{_datadir}/selinux/packages/nginx
@@ -607,7 +606,7 @@ setsebool -P httpd_can_network_relay on 2>/dev/null ||:
 - 1.9.15
 - njs updated to 1c50334fbea6.
 
-* Tue Apr 4 2016 Konstantin Pavlov <thresh@nginx.com>
+* Mon Apr  4 2016 Konstantin Pavlov <thresh@nginx.com>
 - 1.9.14
 
 * Tue Mar 29 2016 Konstantin Pavlov <thresh@nginx.com>
